@@ -1,0 +1,40 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 27/06/2017, 16:27:51
+    Author     : Matheus
+*/
+
+.form-spacing-top {
+    margin-top: 2em;
+}
+
+.select2-container--default .select2-selection--multiple {
+    border: 1px solid #ccc;
+}
+
+.select2-container--default.select2-container--focus .select2-selection--multiple {
+    border: 1px #31b0d5 solid;
+    box-shadow: #31b0d5 1px 1px 1px -1px, 
+                #31b0d5 -1px 1px 1px -1px,
+                #31b0d5 1px -1px 1px -1px,
+                #31b0d5 -1px -1px 1px -1px;
+}
+textarea {
+    resize: none;
+}
+
+.form-title {
+    text-align: center;
+}
+
+.edit-title {
+    text-align: center;
+    margin-top: 3px;
+    font-size: 140%;
+    font-weight: bolder;
+    letter-spacing: 1px;
+}

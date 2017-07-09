@@ -1,0 +1,20 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 27/06/2017, 16:18:17
+    Author     : Matheus
+*/
+#login-box {
+    margin-bottom: 2em;
+}
+
+.login_title {
+    letter-spacing: 1px;
+    margin-top: 1em;
+    font-family: verdana;
+    font-weight: bolder;
+    color: #F55;
+}

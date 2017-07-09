@@ -1,0 +1,52 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 03/07/2017, 11:54:46
+    Author     : Matheus
+*/
+
+.product_photo {
+    margin: 0 auto;
+    width: 100%;
+    min-width: 256px;
+    min-height: 128px;
+    height: 33%;
+    max-height: 386px;
+}
+
+.store_photo {
+    width: 100%;
+    min-height: 128px;
+    height: 33%;
+    max-height: 386px;
+}
+
+fieldset {
+    background-color: #fafafa;
+    border-radius: 10px;
+}
+
+fieldset > legend {
+    text-align: center;
+    border: none;
+}
+
+fieldset > legend > span {
+    background-color: #fafafa;
+    padding: 0.3em 0.85em;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    font-size: large;
+    letter-spacing: 0.15em;
+}
+
+.fieldset_text {
+    padding: 0 1em;
+}
+
+.tags_container {
+    margin-bottom: 1em;
+}

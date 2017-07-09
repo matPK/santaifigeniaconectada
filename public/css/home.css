@@ -1,0 +1,39 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 27/06/2017, 17:54:46
+    Author     : Matheus
+*/
+
+.jumbo-logo {
+    max-height: 200px;
+    
+    /* centraliza */
+    display: block;
+    margin: 0 auto;
+}
+
+.result_box {
+    height:200px;
+}
+
+.result_img {
+    max-height: 128px;
+    max-width: 128px;
+}
+
+.title_box {
+    text-align: center;
+    height: 46px;
+    vertical-align: middle;
+    font-family: verdana;
+}
+
+.title_span {
+    font-weight: bolder;
+    font-size: 20px;
+    white-space: nowrap;
+}
