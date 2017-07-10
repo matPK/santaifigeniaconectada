@@ -35,39 +35,11 @@
 </div>
 <div class="row">
     @foreach($resultset as $result)
-    <!--
-    <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
-        <div class="panel panel-primary result_box">
-            <div class="panel-heading">
-                <div class="panel-title">
-                    {{substr($result->name, 0, 30)}}{{strlen($result->name) > 30 ? '...':''}}
-                </div>
-            </div>
-            <div class="panel-body">
-                <div class="media">
-                    <div class="media-left media-middle">
-                            {!!cl_image_tag('products/'.$result->photos[0]->public_id, [
-                                "alt" => "Imagem {$result->name}",
-                                "class" => "img-responsive result_img"
-                            ])!!}
-                    </div>
-                    <div class="media-body">
-                        <h4 class="media-heading">
-                            {{substr($result->store->name, 0, 50)}}{{strlen($result->store->name) > 50 ? '...':''}}
-                        </h4>
-                        <div>Tel: {{$result->store->phone}}</div>
-                        <div>R${{reais($result->price)}}</div>
-                        <a href="{{route('anuncios.show', $result->slug)}}" class="btn btn-link btn-block">Mais detalhes...</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    -->
+    
 <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
     <div class="thumbnail" style="background-color: #f8f8f8;">
         <div class="caption title_box">
-            <span class="title_span">{{substr($result->name, 0, 35)}}{{strlen($result->name) > 35 ? '...':''}}</span>
+            <span class="title_span">{!! fitResult($result->name, 35, $searchTerm) !!}</span>
         </div>
         {!!cl_image_tag('products/'.$result->photos[0]->public_id, [
             "alt" => "Imagem {$result->name}",

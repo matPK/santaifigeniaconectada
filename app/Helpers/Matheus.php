@@ -22,6 +22,14 @@ function hipsum(){
             Actually church-key wolf art party. Retro locavore kitsch organic green juice hot chicken. Pabst VHS knausgaard retro farm-to-table +1 cornhole thundercats. Pinterest bicycle rights tofu fashion axe gentrify hot chicken etsy neutra, beard pork belly organic VHS four loko green juice. Hella ugh marfa kitsch. Af cold-pressed keytar, hella vice shaman bicycle rights. Ramps vinyl banjo celiac unicorn pickled. Fanny pack blog chillwave, brunch man braid bespoke taiyaki freegan cardigan normcore chambray shaman gluten-free. Vinyl cold-pressed VHS neutra shabby chic mlkshk deep v quinoa. Poutine tattooed brooklyn authentic farm-to-table gastropub hexagon prism letterpress umami. Keffiyeh vice hella selfies distillery meh snackwave poutine cray unicorn dreamcatcher whatever. Sriracha raw denim messenger bag plaid, cardigan photo booth salvia fam. Typewriter four dollar toast hot chicken drinking vinegar direct trade banh mi sriracha. Synth hexagon umami, semiotics live-edge you probably haven't heard of them migas lomo retro truffaut mixtape echo park.";
 }
 
+function fitResult($text, $size, $searchTerm = null){
+    if(is_null($searchTerm)){
+        return substr($text, 0, $size).(strlen($text) > $size ? '...':'');
+    }else{
+        return str_replace($searchTerm, "<span style=\"background-color: yellow;\">{$searchTerm}</span>", substr($text, 0, $size).(strlen($text) > $size ? '...':''));
+    }
+}
+
 function reais($valor){
     return number_format($valor, 2, ',', '.');
 }
