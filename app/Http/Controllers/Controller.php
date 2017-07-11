@@ -11,12 +11,6 @@ class Controller extends BaseController
 {
     use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
     public function __construct() {
-        if(empty(\Cloudinary::config())){
-            \Cloudinary::config([
-                "cloud_name" => env('CLOURINARY_NAME', 'none'), 
-                "api_key"    => env('CLOUDINARY_KEY', 'none'), 
-                "api_secret" => env('CLOUDINARY_SECRET', 'none') 
-            ]);
-        }
+        //
     }
 }

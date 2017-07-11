@@ -17,7 +17,15 @@ class AppServiceProvider extends ServiceProvider
 	public function boot()
 	{
 		
-		Validator::extend('cnpj', 'App\Http\CnpjValidator@validateCnpj');
+            	Validator::extend('cnpj', 'App\Http\CnpjValidator@validateCnpj');
+        
+                  if(empty(\Cloudinary::config())){
+                    \Cloudinary::config([
+                        "cloud_name" => env('CLOURINARY_NAME', 'none'), 
+                        "api_key"    => env('CLOUDINARY_KEY', 'none'), 
+                        "api_secret" => env('CLOUDINARY_SECRET', 'none') 
+                    ]);
+                  }
 
 		Product::paginate()->setPageName('pagina');
 		Store::paginate()->setPageName('pagina');
