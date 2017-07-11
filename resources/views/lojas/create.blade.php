@@ -19,6 +19,17 @@
 @section('styles')
 <!-- insert below the custom stylesheets this view will use -->
     {!! Html::style('css/forms.css') !!}
+    <script src="https://cloud.tinymce.com/stable/tinymce.min.js?apiKey=ugnixycp1tkbbxb38k1itxncyfp9svbqur5phirwq5ywlsxu"></script>
+    
+    <script>
+        tinymce.init({
+            selector: "textarea",
+            plugins: "link lists textcolor fullscreen",
+            toolbar: "bold italic underline | bullist numlist outdent indent | alignleft aligncenter alignright alignjustify | link | fontselect fontsizeselect | forecolor backcolor | fullscreen",
+            menubar: false,
+            language_url: '<?=url('/')?>/js/pt_BR.js'
+        });
+    </script>
 @endsection
 
 @section('title', '| Nova Loja')

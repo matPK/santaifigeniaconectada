@@ -81,7 +81,9 @@
     <div class="row">
         <div class="col-xs-12 col-sm-10 col-sm-offset-1 col-md-8 col-md-offset-2 col-lg-6 col-lg-offset-3">
             <h2 style="font-weight: bolder; color: #009BDB; letter-spacing: 1px;">R${{reais($product->price)}}</h2>
-            <p>{!! $product->description !!}</p>
+            <div class="description_box">
+                {!! $product->description !!}
+            </div>
         </div>
     </div>
 </div>

@@ -21,7 +21,7 @@
 {!! Html::style('css/home.css') !!}
 @endsection
 
-@section('title', "| Resultados para '{$searchTerm}'")
+@section('title', "| Resultados para '".e($searchTerm)."'")
 
 @section('content')
 <!-- content goes below -->
@@ -43,7 +43,7 @@
         </div>
         {!!cl_image_tag('products/'.$result->photos[0]->public_id, [
             "alt" => "Imagem {$result->name}",
-            "crop" => "scale",
+            "crop" => "pad",
             "width" => 128,
             "height" => 128,
             "background" => "#f8f8f8"

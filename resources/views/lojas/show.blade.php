@@ -21,12 +21,13 @@
 {!! Html::style('css/anuncios.css') !!}
 @endsection
 
-@section('title', 'title_here')
+@section('title', "| ".e($store->name))
 
 @section('content')
 <!-- content goes below -->
 <div class="row">
     <div class="col-xs-12 col-sm-10 col-sm-offset-1 col-md-8 col-md-offset-2 col-lg-6 col-lg-offset-3">
+        <h3>{{$store->name}}</h3>
         {!! cl_image_tag("stores/".$store->logo_id, [
             'alt' => $store->name,
             'height' => 386,
@@ -35,8 +36,7 @@
             'class' => 'store_photo'
         ]) !!}
         <div class="fieldset_text">
-            <h3>{{$store->name}}</h3>
-            <p>{!! nl2br(e($store->description)) !!}</p>
+            <div class="description_box">{!! $store->description !!}</div>
             <dl class="dl-horizontal">
                 <dt>Endereço: </dt>
                 <dd>{{$store->address}}</dd>

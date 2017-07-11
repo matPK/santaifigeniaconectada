@@ -20,9 +20,20 @@
 <!-- insert below the custom stylesheets this view will use -->
     {!! Html::style('css/select2.min.css') !!}
     {!! Html::style('css/forms.css') !!}
+    <script src="https://cloud.tinymce.com/stable/tinymce.min.js?apiKey=ugnixycp1tkbbxb38k1itxncyfp9svbqur5phirwq5ywlsxu"></script>
+    
+    <script>
+        tinymce.init({
+            selector: "textarea",
+            plugins: "link lists textcolor fullscreen",
+            toolbar: "bold italic underline | bullist numlist outdent indent | alignleft aligncenter alignright alignjustify | link | fontselect fontsizeselect | forecolor backcolor | fullscreen",
+            menubar: false,
+            language_url: '<?=url('/')?>/js/pt_BR.js'
+        });
+    </script>
 @endsection
 
-@section('title', 'title_here')
+@section('title', 'Editar Loja')
 
 @section('content')
 <!-- content goes below -->
@@ -70,7 +81,6 @@
                     'placeholder' => 'Ex: 12123123000123',
                     'required' => true
                 ])}}
-                {{Form::hidden('current_cnpj', $store->cnpj)}}
                 <span class="text-muted">Apenas os números</span>
             </div>
 

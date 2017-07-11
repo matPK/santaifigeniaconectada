@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Store;
 use Auth;
 use Session;
+use Purifier;
 use Illuminate\Http\Request;
 use Cloudinary\Uploader;
 
@@ -45,11 +46,12 @@ class StoreController extends Controller
             'address' => 'required|min:5|max:255',
 	   'logo_file' => 'required|image',
             'phone' =>'numeric',
-            'cnpj' => 'required|numeric|digits:14|cnpj|unique:stores'
+            'cnpj' => 'required|numeric|digits:14|cnpj|unique:stores,cnpj'
         ]);
         
         $store = new Store;
         foreach($request->except(['_token', 'logo_file']) as $key => $value){
+            if($key === 'description'){$value = Purifier::clean($value);}
             $store->$key = $value;
         }
             
@@ -101,11 +103,12 @@ class StoreController extends Controller
             'name' => 'required|min:5|max:255',
             'address' => 'required|min:5|max:255',
             'phone' => 'numeric',
-            'cnpj' => ($request->current_cnpj != $request->cnpj)?'required|numeric|digits:14|cnpj|unique:stores':''
+            'cnpj' => "required|numeric|digits:14|cnpj|unique:stores,cnpj,$id"
         ]);
         
         $s = Store::find($id);
         foreach($request->except(['_token', '_method', 'current_cnpj']) as $key => $value){
+            if($key === 'description'){$value = Purifier::clean($value);}
             $s->$key = $value;
         }
         

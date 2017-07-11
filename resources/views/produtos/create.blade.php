@@ -26,9 +26,10 @@
     <script>
         tinymce.init({
             selector: "textarea",
-            plugins: "link lists",
-            menubar: false
-            //language_url : 'http://localhost:8000/js/pt_BR.js'  // site absolute URL
+            plugins: "link lists textcolor fullscreen",
+            toolbar: "bold italic underline | bullist numlist outdent indent | alignleft aligncenter alignright alignjustify | link | fontselect fontsizeselect | forecolor backcolor | fullscreen",
+            menubar: false,
+            language_url: '<?=url('/')?>/js/pt_BR.js'
         });
     </script>
 @endsection

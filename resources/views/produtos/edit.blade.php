@@ -26,14 +26,15 @@
     <script>
         tinymce.init({
             selector: "textarea",
-            plugins: "link lists",
-            menubar: false
-            //language_url : 'http://localhost:8000/js/pt_BR.js'  // site absolute URL
+            plugins: "link lists textcolor fullscreen",
+            toolbar: "bold italic underline | bullist numlist outdent indent | alignleft aligncenter alignright alignjustify | link | fontselect fontsizeselect | forecolor backcolor | fullscreen",
+            menubar: false,
+            language_url: '<?=url('/')?>/js/pt_BR.js'
         });
     </script>
 @endsection
 
-@section('title', '| Novo Produto')
+@section('title', '| Editar Produto')
 
 @section('content')
 <!-- content goes below -->
@@ -61,7 +62,6 @@
                     'class' => 'form-control',
                     'required' => true
                 ])}}
-                {{Form::hidden('current_slug', $product->slug)}}
                 <span class="text-muted">Será o nome do anúncio</span>
             </div>
 

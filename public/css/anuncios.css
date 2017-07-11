@@ -21,6 +21,10 @@ and open the template in the editor.
   margin: auto;
 }
 
+.description_box {
+    word-break: keep-all;
+}
+
 .store_photo {
     width: 100%;
     min-height: 128px;
