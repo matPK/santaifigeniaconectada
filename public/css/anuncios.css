@@ -17,6 +17,10 @@ and open the template in the editor.
     max-height: 386px;
 }
 
+.carousel-inner img {
+  margin: auto;
+}
+
 .store_photo {
     width: 100%;
     min-height: 128px;

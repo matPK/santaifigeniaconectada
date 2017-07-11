@@ -8,7 +8,7 @@ use App\Tag;
 use App\Store;
 use Session;
 use Auth;
-use DB;
+use Purifier;
 use Illuminate\Http\Request;
 use Cloudinary\Uploader;
 
@@ -69,12 +69,13 @@ class ProductController extends Controller
             'name' => 'required|between:10,255',
             'price' => 'required|numeric',
             'slug' => 'required|between:10,255|alpha_dash|unique:products',
-	'store_id' => 'required|numeric',
-	  'product_photos' => 'array',
-	  'product_photos.*' => 'image|mimes:jpg,jpeg,png,gif'		
+            'store_id' => 'required|numeric',
+            'product_photos' => 'array',
+            'product_photos.*' => 'image|mimes:jpg,jpeg,png,gif'		
         ]);
         $product = new Product;
         foreach($request->except(['_token', 'product_photos', 'tags']) as $field => $value){
+            if($field === 'description'){ $value = Purifier::clean($value); }
             $product->$field = $value;
         }
         //store, associate and sync
@@ -84,7 +85,7 @@ class ProductController extends Controller
         //create photos
         foreach($request->allFiles()['product_photos'] as $file){
             $photo = new Photo;
-            $status = Uploader::upload($file->path(), ['folder' => 'products', 'format' => 'jpeg', 'quality' => 80]);
+            $status = Uploader::upload($file->path(), ['folder' => 'products', 'format' => 'jpg', 'quality' => 90]);
             $photo->public_id = str_replace('products/', '', $status['public_id']);
             $photo->product_id = $product->id;
             $photo->save();
@@ -147,13 +148,14 @@ class ProductController extends Controller
             'name' => 'required|between:10,255',
             'price' => 'required|numeric',
 	   'store_id' => 'required|numeric',
-            'slug'  => ($request->input('slug') != $request->input('current_slug'))?'required|alpha_dash|min:5|max:255|unique:products,slug':'',
+            'slug'  => "required|alpha_dash|min:5|max:255|unique:products,slug,$id",
         ]);
 
         //update it in the db
         $product = Product::find($id);
-        foreach($request->except(['_token', '_method', 'current_slug', 'tags']) as $key => $value){
-            $product->$key = $value;
+        foreach($request->except(['_token', '_method', 'current_slug', 'tags']) as $field => $value){
+            if($field === 'description'){ $value = Purifier::clean($value); }
+            $product->$field = $value;
         }
 
         $product->save();

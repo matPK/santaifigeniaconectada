@@ -20,6 +20,17 @@
 <!-- insert below the custom stylesheets this view will use -->
     {!! Html::style('css/select2.min.css') !!}
     {!! Html::style('css/forms.css') !!}
+    
+    <script src="https://cloud.tinymce.com/stable/tinymce.min.js?apiKey=ugnixycp1tkbbxb38k1itxncyfp9svbqur5phirwq5ywlsxu"></script>
+    
+    <script>
+        tinymce.init({
+            selector: "textarea",
+            plugins: "link lists",
+            menubar: false
+            //language_url : 'http://localhost:8000/js/pt_BR.js'  // site absolute URL
+        });
+    </script>
 @endsection
 
 @section('title', '| Novo Produto')
@@ -99,7 +110,6 @@
                 {{Form::label('description', 'Descrição do Produto:')}}
                 {{Form::textarea('description', null, [
                     'class' => 'form-control',
-                    'required' => true,
                     'resizable' => false,
                     'rows' => 5
                 ])}}

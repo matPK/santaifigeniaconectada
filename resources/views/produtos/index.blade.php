@@ -84,7 +84,7 @@
     <div class="panel panel-info">
         <div class="panel-heading">
             <div class="panel-title">
-                {{substr($product->name, 0, 25)}}{{strlen($product->name) > 25 ? '...':''}}
+                {{ strip($product->name, 25) }}
             </div>
         </div>
         <div class="panel-body">
@@ -95,7 +95,7 @@
                     </a>
                 </div>
                 <div class="media-body">
-                    {{substr($product->description, 0, 100)}}{{strlen($product->description) > 100 ? '...':''}}
+                    {{ strip($product->description, 100) }}
                 </div>
                 <div class="text-right" style="margin-top: 0.5em;">
                     <a href="{{route('anuncios.show', $product->slug)}}" class="btn btn-default">

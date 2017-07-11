@@ -53,7 +53,7 @@ class StoreController extends Controller
             $store->$key = $value;
         }
             
-        $status = Uploader::upload($request->file()['logo_file']->path(), ['folder' => 'stores', 'format' => 'jpeg', 'quality' => 80]);
+        $status = Uploader::upload($request->file()['logo_file']->path(), ['folder' => 'stores', 'format' => 'jpg', 'quality' => 90]);
         $store->logo_id = str_replace('stores/', '', $status['public_id']);
         $store->user_id = Auth::user()->id;
         

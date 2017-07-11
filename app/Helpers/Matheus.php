@@ -30,6 +30,10 @@ function fitResult($text, $size, $searchTerm = null){
     }
 }
 
+function strip($text, $size){
+    return substr(strip_tags($text), 0, $size).(strlen(strip_tags($text)) > $size ? '...':'');
+}
+
 function reais($valor){
     return number_format($valor, 2, ',', '.');
 }

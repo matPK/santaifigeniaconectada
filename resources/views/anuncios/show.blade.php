@@ -55,11 +55,10 @@
                     @foreach($product->photos as $photo)
                     <div class="item{{$i == 0?' active':''}}">
                         {!! cl_image_tag("products/".$photo->public_id, [
+                            'height' => 256,
+                            'width' => 256,
                             'alt' => $product->name,
-                            'height' => 386,
-                            'width' => 1024,
-                            'crop' => 'pad',
-                            'class' => 'product_photo'
+                            'crop' => 'pad'
                         ]) !!}
                     </div>
                     <?php $i++;?>
@@ -81,8 +80,8 @@
     </div>
     <div class="row">
         <div class="col-xs-12 col-sm-10 col-sm-offset-1 col-md-8 col-md-offset-2 col-lg-6 col-lg-offset-3">
-            <h3>R${{reais($product->price)}}</h3>
-            <p>{!! nl2br(e($product->description)) !!}</p>
+            <h2 style="font-weight: bolder; color: #009BDB; letter-spacing: 1px;">R${{reais($product->price)}}</h2>
+            <p>{!! $product->description !!}</p>
         </div>
     </div>
 </div>

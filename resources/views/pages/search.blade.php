@@ -43,7 +43,10 @@
         </div>
         {!!cl_image_tag('products/'.$result->photos[0]->public_id, [
             "alt" => "Imagem {$result->name}",
-            "class" => "img-responsive result_img"
+            "crop" => "scale",
+            "width" => 128,
+            "height" => 128,
+            "background" => "#f8f8f8"
         ])!!}
         <div class="caption text-center">
             <h4>{{substr($result->store->name, 0, 35)}}{{strlen($result->store->name) > 35 ? '...':''}}</h4>
