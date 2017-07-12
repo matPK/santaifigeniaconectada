@@ -25,6 +25,17 @@ and open the template in the editor.
     word-break: keep-all;
 }
 
+.icons {
+    color: #009BDB;
+    font-size: 2em;
+}
+
+.product_price {
+    font-weight: bolder;
+    color: #009BDB;
+    letter-spacing: 1px;
+}
+
 .store_photo {
     width: 100%;
     min-height: 128px;
@@ -49,6 +60,11 @@ fieldset > legend > span {
     border-top-right-radius: 10px;
     font-size: large;
     letter-spacing: 0.15em;
+}
+
+.store_name {
+    color: #E6B400;
+    font-weight: bolder;
 }
 
 .fieldset_text {

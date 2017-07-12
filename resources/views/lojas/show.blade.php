@@ -27,7 +27,7 @@
 <!-- content goes below -->
 <div class="row">
     <div class="col-xs-12 col-sm-10 col-sm-offset-1 col-md-8 col-md-offset-2 col-lg-6 col-lg-offset-3">
-        <h3>{{$store->name}}</h3>
+        <h3 class="store_name">{{$store->name}}</h3>
         {!! cl_image_tag("stores/".$store->logo_id, [
             'alt' => $store->name,
             'height' => 386,
@@ -36,16 +36,20 @@
             'class' => 'store_photo'
         ]) !!}
         <div class="fieldset_text">
-            <div class="description_box">{!! $store->description !!}</div>
-            <dl class="dl-horizontal">
-                <dt>Endereço: </dt>
-                <dd>{{$store->address}}</dd>
-                <dt>Ligue:</dt>
-                <dd>
-                    <a class="btn btn-link visible-sm-inline-block visible-md-inline visible-lg-inline" href="tel:{{$store->phone}}">{{fone($store->phone)}}</a>
-                    <a class="btn btn-link btn-lg hidden-sm visible-xs-block" href="tel:{{$store->phone}}">{{fone($store->phone)}}</a>
-                </dd>
-            </dl>
+            <div class="description_box">
+                {!! $store->description !!}
+            </div>
+            <div>
+                <a href="tel:{{$store->phone}}"
+                    class="btn btn-link btn-block btn-lg">
+                    <i class="glyphicon glyphicon-earphone"></i>
+                    {{fone($store->phone)}}
+                </a>
+            </div>
+            <div class="tags_container">
+                <i class="glyphicon glyphicon-map-marker icons"></i>
+                {{$store->address}}
+            </div>
         </div>
         <div class="embed-responsive embed-responsive-16by9">
             <iframe class="embed-responsive-item" src="{{$embed_link}}"></iframe>

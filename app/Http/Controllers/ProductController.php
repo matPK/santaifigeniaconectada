@@ -26,6 +26,7 @@ class ProductController extends Controller
             $s->where('user_id', Auth::user()->id);
         }])
         ->paginate(8);
+        
 
         return view('produtos.index')->with('products', $p);
     }

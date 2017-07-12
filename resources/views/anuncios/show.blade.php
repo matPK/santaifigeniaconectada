@@ -80,7 +80,7 @@
     </div>
     <div class="row">
         <div class="col-xs-12 col-sm-10 col-sm-offset-1 col-md-8 col-md-offset-2 col-lg-6 col-lg-offset-3">
-            <h2 style="font-weight: bolder; color: #009BDB; letter-spacing: 1px;">R${{reais($product->price)}}</h2>
+            <h2 class="product_price">R${{reais($product->price)}}</h2>
             <div class="description_box">
                 {!! $product->description !!}
             </div>
@@ -98,16 +98,18 @@
                 'class' => 'store_photo'
             ]) !!}
             <div class="fieldset_text">
-                <h3>{{$product->store->name}}</h3>
-                <dl class="dl-horizontal">
-                    <dt>Endereço: </dt>
-                    <dd>{{$product->store->address}}</dd>
-                    <dt>Ligue:</dt>
-                    <dd>
-                        <a class="btn btn-link visible-sm-inline-block visible-md-inline visible-lg-inline" href="tel:{{$product->store->phone}}">{{fone($product->store->phone)}}</a>
-                        <a class="btn btn-link btn-lg hidden-sm visible-xs-block" href="tel:{{$product->store->phone}}">{{fone($product->store->phone)}}</a>
-                    </dd>
-                </dl>
+                <h3 class="store_name">{{$product->store->name}}</h3>
+                <div>
+                    <a href="tel:{{$product->store->phone}}"
+                        class="btn btn-link btn-block btn-lg">
+                        <i class="glyphicon glyphicon-earphone"></i>
+                        {{fone($product->store->phone)}}
+                    </a>
+                </div>
+                <div class="tags_container">
+                    <i class="glyphicon glyphicon-map-marker icons"></i>
+                    {{$product->store->address}}
+                </div>
             </div>
             <div class="embed-responsive embed-responsive-16by9">
                 <iframe class="embed-responsive-item" src="{{$embed_link}}"></iframe>
