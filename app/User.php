@@ -26,4 +26,14 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+    
+    public function stores()
+    {
+        $this->hasMany('App\Store');
+    }
+    
+    public function productsOfStores()
+    {
+        $this->hasManyThrough('App\Product', 'App\Store');
+    }
 }

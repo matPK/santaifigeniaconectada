@@ -46,7 +46,7 @@ class StoreController extends Controller
             'address' => 'required|min:5|max:255',
 	   'logo_file' => 'required|image',
             'phone' =>'numeric',
-            'cnpj' => 'required|numeric|digits:14|cnpj|unique:stores,cnpj'
+            'cnpj' => 'required|numeric|digits:14|cnpj|unique:stores,deleted_at,NULL'
         ]);
         
         $store = new Store;

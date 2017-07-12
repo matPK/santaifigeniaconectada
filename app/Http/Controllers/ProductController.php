@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Product;
 use App\Photo;
 use App\Tag;
+use App\User;
 use App\Store;
 use Session;
 use Auth;
@@ -21,13 +22,10 @@ class ProductController extends Controller
      */
     public function index()
     {
-        $p = Product::where('stores.user_id', Auth::user()->id)
-            ->join('stores', 'stores.id', '=', 'products.store_id')
-            ->join('photos', 'photos.product_id', '=', 'products.id')
-            ->select('products.*')
-            ->distinct()
-            ->paginate(10)
-            ->setPageName('pagina');
+        $p = Product::with(['store' => function($s){
+            $s->where('user_id', Auth::user()->id);
+        }])
+        ->paginate(8);
 
         return view('produtos.index')->with('products', $p);
     }

@@ -57,12 +57,12 @@ class PagesController extends Controller
     public function getLojista(){
         $sc = Store::where('user_id', '=', Auth::user()->id)->count();
 
-        $pc = DB::table('products')
-            ->leftJoin('stores', 'store_id', '=', 'stores.id')
-            ->where('stores.user_id', '=', Auth::user()->id)
-            ->where('products.deleted_at', null)
-            ->count();
-
+        $pc = Product::with(['store' => function($s){
+            $s->where('user_id', Auth::user()->id);
+        }])
+        ->get()
+        ->count();
+        
         return view('pages.lojista')
             ->with('stores_count', $sc)
             ->with('products_count', $pc);
