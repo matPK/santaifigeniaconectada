@@ -21,7 +21,7 @@ class PagesController extends Controller
     
     public function redirect(){
         Session::pull("showConnectButton");
-        return redirect()->to("http://192.168.20.1:8080");
+        return redirect()->to("http://192.168.20.1:8080/captive/");
     }
     
     //
