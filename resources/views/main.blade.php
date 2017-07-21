@@ -11,6 +11,9 @@
         <div class="container-fluid">
             <div class="row">
                 <div class="col-md-12">
+                    @if(Session::exists("showConnectButton"))
+                        <a href="{{route("redirect")}}" class="btn btn-info btn-lg btn-block">CLIQUE PARA ACESSAR A INTERNET</a>
+                    @endif
                     @yield('content')
                 </div> <!-- end of .col -->
             </div> <!-- end of .row -->

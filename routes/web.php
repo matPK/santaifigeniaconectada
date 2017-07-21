@@ -26,6 +26,7 @@ Route::middleware(['auth'])->group(function(){
         Route::get('/', 'PagesController@getLojista')->name('lojista.index');
     });
 });
+Route::get('/redirect', 'PagesController@redirect')->name('redirect');
 Route::get('/buscar', 'PagesController@getSearch')->name('buscar');
 Route::get('/loja/{id}', 'PagesController@showLoja')->name('lojas.show');
 //Route::get('/anuncios', 'PagesController@getAnuncio')->name('anuncios.index');

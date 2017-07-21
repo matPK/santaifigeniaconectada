@@ -12,9 +12,24 @@ use Illuminate\Http\Request;
 
 class PagesController extends Controller
 {
+    public function __construct(Request $request = null) {
+        parent::__construct();
+        if(!is_null($request) && $request->ost == 1){
+            Session::put("showConnectButton", true);
+        }
+    }
+    
+    public function redirect(){
+        Session::pull("showConnectButton");
+        return redirect()->to("http://192.168.20.1:8080");
+    }
+    
     //
-    public function getIndex(){
+    public function getIndex(Request $request = null){
+        
+        //mostrar o botão caso tenha sido redirecionado pela OSTECH
 
+        
         $top5 = DB::table('searches')
             ->join('tags', 'name', 'like', DB::raw("concat('%', searches.term, '%')"))
             ->selectRaw("distinct(tags.name), count(searches.id) as n")
